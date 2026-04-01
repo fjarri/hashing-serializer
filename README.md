@@ -8,13 +8,12 @@ An implementation of [`serde::Serializer`] serializing directly into a hash dige
 ```rust
 use digest::Digest;
 use k256::ecdsa::SigningKey;
-use rand_core::OsRng;
 use serde::Serialize;
 use sha2::Sha256;
 
 use hashing_serializer::HashingSerializer;
 
-let sk = SigningKey::random(&mut OsRng);
+let sk = SigningKey::from_slice(&[1u8; 32]).unwrap();
 let vk = sk.verifying_key();
 
 let mut digest = Sha256::new();

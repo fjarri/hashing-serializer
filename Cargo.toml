@@ -11,12 +11,11 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1", default-features = false }
-digest = { version = "0.11.0-pre.9", default-features = false }
+digest = { version = "0.11.2", default-features = false }
 
 [dev-dependencies]
-sha2 = "0.11.0-pre.3"
-k256 = {git = "https://github.com/RustCrypto/elliptic-curves", features = ["serde", "pem"]}
-rand_core = "0.6"
+sha2 = "0.11.0"
+k256 = { version = "0.14.0-rc.8", features = ["serde", "pem"] }
 
 [features]
 default = []
