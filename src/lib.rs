@@ -402,7 +402,6 @@ impl<'a, T: Update> SerializeStructVariant for HashingSerializer<'a, T> {
 mod tests {
     use digest::Digest;
     use k256::ecdsa::SigningKey;
-    use rand_core::OsRng;
     use serde::Serialize;
     use sha2::Sha256;
 
@@ -410,7 +409,7 @@ mod tests {
 
     #[test]
     fn hash_serializable() {
-        let sk = SigningKey::random(&mut OsRng);
+        let sk = SigningKey::from_slice(&[1u8; 32]).unwrap();
         let vk = sk.verifying_key();
 
         let mut digest = Sha256::new();
